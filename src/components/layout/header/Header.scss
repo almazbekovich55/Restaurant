@@ -5,9 +5,11 @@
     align-items: center;
     justify-content: space-between;
     h1 {
-      font-family: "Playfair Display", serif;
+      font-family: "Prata", serif;
       font-weight: 600;
-      font-size: 29px;
+      font-size: 28px;
+      letter-spacing: 1.2px;
+      cursor: pointer;
       color: #ffffff;
     }
     &--nav {
@@ -15,23 +17,25 @@
       align-items: center;
       gap: 80px;
       a {
-        font-family: "Montserrat", sans-serif;
+        font-family: "League Spartan", sans-serif;
         font-weight: 500;
-        font-size: 17px;
+        font-size: 19px;
+        line-height: 100%;
+        text-transform: capitalize;
         color: #ffffff;
       }
       select {
-        font-family: "Playfair Display", serif;
+        padding: 0px 10px;
         font-weight: 600;
-        font-size: 17px;
+        font-size: 16px;
         color: #ffffff;
         background: transparent;
         border: none;
         outline: none;
         cursor: pointer;
+        font-family: "Playfair Display", serif;
 
         option {
-          font-family: "Playfair Display", serif;
           background: #1b2026;
           padding: 10px 20px;
           font-weight: 500;
@@ -45,10 +49,13 @@
         background: #ef272c;
         border-radius: 8px;
         padding: 10px 10px;
+        font-family: "League Spartan", sans-serif;
+
         .ion-icon {
           font-size: 19px;
           cursor: pointer;
           color: #c1c0c0;
+          margin-bottom: 2px;
         }
         input {
           background: #ef272c;
@@ -57,7 +64,10 @@
           border: none;
           outline: none;
           color: #c1c0c0;
+          font-family: "League Spartan", sans-serif;
+
           &::placeholder {
+            font-family: "League Spartan", sans-serif;
             color: #c1c0c0;
             font-weight: 500;
             font-size: 16px;

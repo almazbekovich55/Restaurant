@@ -1,10 +1,13 @@
 import React from 'react';
-import MainPage from '../pages/mainPage/MainPage';
+import AboutUs from '../pages/aboutUs/AboutUs';
+import Delicious from "../pages/delicious/Delicious";
+
 
 const Main = () => {
     return (
         <div>
-            <MainPage />
+            <Delicious />
+            <AboutUs />
         </div>
     );
 };

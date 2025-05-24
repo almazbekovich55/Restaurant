@@ -1,31 +1,46 @@
-import React from "react";
-import aboutUs1 from "../../../assets/Images/svg.svg";
-import aboutUs2 from "../../../assets/Images/svg2.svg";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./AboutUs.scss";
+import lineLeft from "../../../assets/Images/LineLeft.svg";
 
 const AboutUs = () => {
+  const [about, setAbout] = useState([]);
+
+  async function getData() {
+    const res = await axios(`http://13.49.230.234/en/about/`);
+    setAbout(res.data);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <section id="aboutUs">
       <div className="container">
-        <div className="aboutUs">
-          <div className="aboutUs--title">
-            <h1>
-              A Journey Throught <br />
-              Cafesio Flavors
-            </h1>
-            <img src={aboutUs1} alt="" />
-          </div>
+        {about.map((el) => (
+          <div key={el.id} className="aboutUs">
+            <div className="aboutUs--top">
+             <div className="aboutUs--top__decoration">
+               <img src={lineLeft} alt="img" />
+              <h4>{el.label}</h4>
+             </div>
+              <div className="aboutUs--top__text">
+              <h1>{el.title}</h1>
+              <p>{el.description}</p>
+              </div>
+            </div>
 
-          <div className="aboutUs--title">
-            <p>
-              Try dishes that will open up new tastes for you and delight your <br />
-              eyes with their appearance. Here you will find a cozy atmosphere, <br />
-              excellent service and attention to each guest. Book a table now <br />
-              and enjoy a unique experience of taste discovery! <br />
-            </p>
-            <img src={aboutUs2} alt="img" />
+            <div className="aboutUs--bottom">
+              <div className="aboutUs--bottom__left">
+                <img src={el.image1} alt="chef" />
+              </div>
+              <div className="aboutUs--bottom__right">
+                <img src={el.image2} alt="dishes" />
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

@@ -36,7 +36,6 @@ const Footer = () => {
           <p>c 2023 Motion Study LLC</p>
         </center>
         </div>
-
       </div>
     </footer>
   );

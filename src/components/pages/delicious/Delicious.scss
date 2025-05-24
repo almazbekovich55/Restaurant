@@ -1,0 +1,116 @@
+#delicious {
+  padding-bottom: 40px;
+  border-top: 0.2px solid rgba(255, 255, 255, 0.6);
+  .delicious {
+    &--content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 600px;
+      &__center {
+        margin-top: 184px;
+        width: 105%;
+        height: 100%;
+        border-left: 0.2px solid rgba(255, 255, 255, 0.4);
+        border-right: 0.2px solid rgba(255, 255, 255, 0.4);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: rgba(255, 255, 255, 1);
+        &--name {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          h3 {
+            font-family: "Shalimar", cursive;
+            font-weight: 400;
+            font-size: 40px;
+            color: rgba(255, 255, 255, 1);
+          }
+          img {
+            width: 68px;
+          }
+        }
+        h1 {
+          font-family: "Prata", serif;
+          font-weight: 500;
+          font-size: 55px;
+        }
+        p {
+          font-family: "League Spartan", sans-serif;
+          margin: 12px 0;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 1.1;
+          text-align: center;
+          line-height: 110%;
+          letter-spacing: 0%;
+          width: 33%;
+        }
+        &--btn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+          hr {
+            border: 1.4px solid rgba(239, 39, 44, 1);
+            width: 170px;
+          }
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 220px;
+            height: 42px;
+            background: transparent;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 1);
+            letter-spacing: 1px;
+            border: 1.6px solid rgba(239, 39, 44, 1);
+            cursor: pointer;
+          }
+        }
+      }
+      &__bottom {
+        padding-bottom: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 101%;
+        border-bottom: 0.2px solid rgba(255, 255, 255, 0.4);
+        &--text {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          h4 {
+            font-family: "League Spartan", sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.8px;
+            color: rgba(255, 255, 255, 1);
+          }
+          hr {
+            width: 60px;
+            border: 0.6px solid rgba(255, 255, 255, 0.6);
+          }
+          a {
+            color: rgba(239, 39, 44, 1);
+            font-size: 18px;
+          }
+          .span {
+            font-family: "League Spartan", sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.8px;
+            text-transform: capitalize;
+            color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+    }
+  }
+}
