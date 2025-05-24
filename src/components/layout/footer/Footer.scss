@@ -1,0 +1,56 @@
+#footer {
+    padding: 40px 0px;
+    background-color: #121212;
+  .footer--bottom {
+    hr {
+      margin: 30px 0px;
+      color: #FFFFFFCC;
+    }
+    p {
+      font-family: "Montserrat" sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      text-transform: capitalize;
+      color: #ffffff;
+    }
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &--title {
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 29px;
+        color: #ffffff;
+      }
+    }
+    &--nav {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 17px;
+        color: #ffffff;
+      }
+    }
+    &--icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      .icon1 {
+        font-size: 27px;
+        cursor: pointer;
+        color: #c1c0c0;
+      }
+      .icon2 {
+        font-size: 27px;
+        cursor: pointer;
+        color: #c1c0c0;
+      }
+    }
+  }
+}

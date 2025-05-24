@@ -1,0 +1,14 @@
+#aboutUs {
+    padding: 50px 0;
+    .aboutUs {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        &--title {
+            img {
+                width: 528px;
+                height: 303px;
+            }
+        }
+    }
+}

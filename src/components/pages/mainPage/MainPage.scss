@@ -1,0 +1,146 @@
+#mainPage {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+
+  .mainPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff; 
+    padding: 40px 20px;
+    animation: fadeIn 1s ease-in-out;
+
+    &--text {
+      &__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        margin-bottom: 20px;
+
+        h1 {
+          font-family: "Shalimar", cursive;
+          font-size: 3.5rem;
+          font-weight: 400;
+          color: #f8e1a8; 
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+
+        img {
+          max-width: 100px;
+          height: auto;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: rotate(10deg);
+          }
+        }
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 10px 0;
+        font-family: "Shalimar", cursive;
+        color: #f8e1a8;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto 20px;
+        color: #e0e0e0;
+      }
+
+      .reserve-button {
+        background-color: #d32f2f; // Италиялык темага ылайыктуу кызыл түс
+        color: #fff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+          background-color: #b71c1c;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  // Анимация
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Адаптивдүү дизайн
+  @media (max-width: 768px) {
+    .mainPage--text {
+      &__img {
+        flex-direction: column;
+        gap: 20px;
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        img {
+          max-width: 80px;
+        }
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .reserve-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mainPage--text {
+      &__img {
+        h1 {
+          font-size: 2rem;
+        }
+
+        img {
+          max-width: 60px;
+        }
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
