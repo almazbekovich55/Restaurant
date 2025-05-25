@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Delicious.scss";
 import axios from "axios";
 import leftLine from "../../../assets/Images/LineLeft.svg";
@@ -6,18 +6,20 @@ import rightLine from "../../../assets/Images/LineRight.svg";
 import { BsGeoAltFill } from "react-icons/bs";
 import { ImPhone } from "react-icons/im";
 import { FaArrowRight } from "react-icons/fa";
+import { BodyContext } from "../../../context";
 
 const MainPage = () => {
   const [data, setData] = useState([]);
+  const { language } = useContext(BodyContext);
 
   async function getData() {
-    const res = await axios(`http://13.49.230.234/en/main/`);
+    const res = await axios(`http://16.171.195.17/${language}/main/`);
     setData(res.data);
   }
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [language]);
 
   return (
     <>
@@ -46,9 +48,9 @@ const MainPage = () => {
               <div className="delicious--content">
                 <div className="delicious--content__center">
                   <div className="delicious--content__center--name">
-                    <img src={rightLine} alt="right decoration" />
-                    <h3>{el.title}</h3>
                     <img src={leftLine} alt="left decoration" />
+                    <h3>{el.title}</h3>
+                    <img src={rightLine} alt="right decoration" />
                   </div>
                   <h1>{el.restaurant_name}</h1>
                   <p>{el.description}</p>

@@ -1,9 +1,19 @@
 #header {
   padding: 20px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 32, 38, 0.4) 46.81%,
+    rgba(27, 32, 38, 0.8) 100.67%
+  );
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  left: 0;
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     h1 {
       font-family: "Prata", serif;
       font-weight: 600;
@@ -75,5 +85,36 @@
         }
       }
     }
+    &--menu {
+      display: none;
+    }
   }
 }
+
+@media (max-width: 768px) {
+  #header {
+    padding: 25px 0px 20px 0px;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h1 {
+        font-size: 22px;
+      }
+      &--nav {
+        display: none;
+      }
+      &--menu {
+        display: block;
+
+        a {
+          font-size: 24px;
+          color: #ffffff;
+
+        }
+      }
+    }
+  }
+}
+
+

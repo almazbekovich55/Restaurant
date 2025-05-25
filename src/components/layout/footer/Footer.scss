@@ -58,3 +58,38 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  #footer {
+    padding: 30px 10px;
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &--title {
+        h1 {
+          font-size: 19px;
+        }
+      }
+      &--nav {
+        display: none;
+      }
+      &--icons {
+        gap: 10px;
+      }
+      .icon1 {
+        font-size: 22px;
+      }
+      .icon2 {
+        font-size: 22px;
+      }
+    }
+    .footer--bottom {
+      text-align: center;
+      hr {
+        margin: 18px 0px;
+        color: #ffffffcc;
+      }
+    }
+  }
+}

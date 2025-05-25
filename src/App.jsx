@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/layout/footer/Footer.jsx";
-import Header from "./components/layout/Header/Header.jsx";
 import Main from "./components/main/Main.jsx";
+import Header from "./components/layout/header/Header.jsx";
 
 function App() {
   const routes = [

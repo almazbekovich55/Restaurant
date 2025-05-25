@@ -114,3 +114,125 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  #delicious {
+    .delicious {
+      &--content {
+        height: auto;
+
+        &__center {
+          margin-top: 100px;
+          width: 100%;
+
+          h1 {
+            font-size: 42px;
+            text-align: center;
+          }
+
+          p {
+            font-size: 16px;
+            width: 70%;
+          }
+
+          &--name {
+            gap: 10px;
+            h3 {
+              font-size: 32px;
+              text-align: center;
+            }
+            img {
+              width: 50px;
+            }
+          }
+
+          &--btn {
+            button {
+              width: 200px;
+              height: 40px;
+              font-size: 11px;
+            }
+
+            hr {
+              width: 140px;
+            }
+          }
+        }
+
+        &__bottom {
+          margin-top: 150px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          &--text {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 6px;
+
+            h4 {
+              font-size: 14.5px;
+            }
+            a {
+              font-size: 16px;
+              width: 64%;
+              line-height: 15px;
+            }
+
+            .span {
+              font-size: 12px;
+            }
+
+            hr {
+              width: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #delicious {
+    .delicious {
+      &--content {
+        &__center {
+          h1 {
+            font-size: 32px;
+          }
+
+          p {
+            font-size: 16px;
+            width: 90%;
+          }
+
+          &--name {
+            display: flex;
+            h3 {
+              font-size: 38px;
+            }
+            img {
+              width: 50px;
+            }
+          }
+
+          &--btn {
+            gap: 4px;
+
+            button {
+              width: 180px;
+              height: 38px;
+              font-size: 10px;
+            }
+
+            hr {
+              width: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
