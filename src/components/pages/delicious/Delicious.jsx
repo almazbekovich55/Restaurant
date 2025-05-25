@@ -7,6 +7,7 @@ import { BsGeoAltFill } from "react-icons/bs";
 import { ImPhone } from "react-icons/im";
 import { FaArrowRight } from "react-icons/fa";
 import { BodyContext } from "../../../context";
+import { t } from "i18next";
 
 const MainPage = () => {
   const [data, setData] = useState([]);
@@ -57,7 +58,7 @@ const MainPage = () => {
                   <div className="delicious--content__center--btn">
                     <hr />
                     <button>
-                      Reserve Your Table <FaArrowRight />
+                      {t("reserve_table")} <FaArrowRight />
                     </button>
                     <hr />
                   </div>
