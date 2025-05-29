@@ -8,10 +8,11 @@ import { ImPhone } from "react-icons/im";
 import { FaArrowRight } from "react-icons/fa";
 import { BodyContext } from "../../../context";
 import { t } from "i18next";
+import Contacts from "../../pages/contacts/Contacts.jsx";
 
 const MainPage = () => {
   const [data, setData] = useState([]);
-  const { language } = useContext(BodyContext);
+  const { language, modal, setModal } = useContext(BodyContext);
 
   async function getData() {
     const res = await axios(`http://16.171.195.17/${language}/main/`);
@@ -22,6 +23,17 @@ const MainPage = () => {
     getData();
   }, [language]);
 
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modal]);
+
   return (
     <>
       {data.map((el) => (
@@ -31,12 +43,12 @@ const MainPage = () => {
           style={{
             minHeight: "80vh",
             backgroundImage: `
-              linear-gradient(
-              180deg,
-              rgba(27, 32, 38, 0.4) 46.81%,
-              rgba(27, 32, 38, 0.8) 100.67% ),
-              url(${el.image})
-            `,
+            linear-gradient(
+            180deg,
+            rgba(27, 32, 38, 0.4) 46.81%,
+            rgba(27, 32, 38, 0.8) 100.67% ),
+            url(${el.image})
+          `,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -57,7 +69,7 @@ const MainPage = () => {
                   <p>{el.description}</p>
                   <div className="delicious--content__center--btn">
                     <hr />
-                    <button>
+                    <button onClick={() => setModal(!modal)}>
                       {t("reserve_table")} <FaArrowRight />
                     </button>
                     <hr />
@@ -72,7 +84,7 @@ const MainPage = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <BsGeoAltFill />
+                      <BsGeoAltFill className="location" />
                     </a>
                     <a
                       className="span"
@@ -87,12 +99,16 @@ const MainPage = () => {
                     <h4>{el.title_phone}</h4>
                     <hr />
                     <a href={`tel:${el.phone}`}>
-                      <ImPhone />
+                      <ImPhone className="phone" />
                     </a>
-                    <a className="span"
+                    <a
+                      className="span"
                       href={`tel:${el.phone}`}
                       target="_blank"
-                      rel="noopener noreferrer">{el.phone}</a>
+                      rel="noopener noreferrer"
+                    >
+                      {el.phone}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -100,6 +116,24 @@ const MainPage = () => {
           </div>
         </section>
       ))}
+      {modal && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100vh",
+            zIndex: 999,
+            background:
+              "linear-gradient(180deg,rgba(27, 32, 38, 0.4) 46.81%,rgba(27, 32, 38, 0.8) 100.67%)",
+            backdropFilter: "blur(6px)",
+            overflow: "hidden",
+          }}
+        >
+          <Contacts />
+        </div>
+      )}
     </>
   );
 };

@@ -4,20 +4,31 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/layout/footer/Footer.jsx";
 import Main from "./components/main/Main.jsx";
 import Header from "./components/layout/header/Header.jsx";
+import Category from "./components/pages/category/Category.jsx"
+import Detail from "./components/pages/detail/Detail.jsx"
 
 function App() {
   const routes = [
     {
       id: 1,
-      path: "/as",
-      element: <h1>Home</h1>,
+      path: "/",
+      element: <Main />,
     },
+    {
+      id: 2,
+      path: "/products",
+      element: <Category />,
+    },
+    {
+      id: 3,
+      path: "/detail/:id",
+      element: <Detail />
+    }
   ];
 
   return (
     <div className="App">
       <Header />
-      <Main />
       <Routes>
         {routes.map((el) => (
           <Route key={el.id} path={el.path} element={el.element} />

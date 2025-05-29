@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 import { TbMenu2 } from "react-icons/tb";
 import { IoCloseOutline } from "react-icons/io5";
+import { Link as ScrollLink } from "react-scroll";
 
 const Header = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
@@ -21,7 +22,7 @@ const Header = () => {
     }
   }, [selectedLanguage, setLanguage, i18n]);
 
-   useEffect(() => {
+  useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -41,12 +42,29 @@ const Header = () => {
     <header id="header">
       <div className="container">
         <div className="header">
-          <h1>Restaurant</h1>
+          <Link to={"/"}>Restaurant</Link>
           <div className="header--nav">
-            <Link to={"/interior"}>{t("interior")}</Link>
-            <Link to={"/about-us"}>{t("about_us")}</Link>
-            <Link to={"/menu"}>{t("menu")}</Link>
-            <Link to={"/contacts"}>{t("contacts")}</Link>
+            <ScrollLink
+              to="interior"
+              smooth={true}
+              duration={1500}
+              offset={-100}
+            >
+              {t("interior")}
+            </ScrollLink>
+
+            <ScrollLink to="aboutUs" smooth={true} duration={1500} offset={-60}>
+              {t("about_us")}
+            </ScrollLink>
+
+            <ScrollLink to="menu" smooth={true} duration={1500} offset={-100}>
+              {t("menu")}
+            </ScrollLink>
+
+            <ScrollLink to="visit" smooth={true} duration={1500} offset={-120}>
+              {t("contacts")}
+            </ScrollLink>
+
             <div className="header--nav__search">
               <CiSearch className="ion-icon" />
               <input type="text" placeholder={t("search")} />
@@ -69,24 +87,44 @@ const Header = () => {
             <nav className={`header--menu__items ${isMenuOpen ? "open" : ""}`}>
               <ul>
                 <li>
-                  <Link to={"/interior"} onClick={Menu}>
+                  <ScrollLink
+                    to="interior"
+                    smooth={true}
+                    duration={1500}
+                    offset={-100}
+                  >
                     {t("interior")}
-                  </Link>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <Link to={"/about-us"} onClick={Menu}>
+                  <ScrollLink
+                    to="aboutUs"
+                    smooth={true}
+                    duration={1500}
+                    offset={-60}
+                  >
                     {t("about_us")}
-                  </Link>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <Link to={"/menu"} onClick={Menu}>
+                  <ScrollLink
+                    to="menu"
+                    smooth={true}
+                    duration={1500}
+                    offset={-100}
+                  >
                     {t("menu")}
-                  </Link>
+                  </ScrollLink>
                 </li>
                 <li>
-                  <Link to={"/contacts"} onClick={Menu}>
+                  <ScrollLink
+                    to="visit"
+                    smooth={true}
+                    duration={1500}
+                    offset={-120}
+                  >
                     {t("contacts")}
-                  </Link>
+                  </ScrollLink>
                 </li>
               </ul>
               <div className="header--menu__items--options">

@@ -1,7 +1,7 @@
 import React from "react";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { RiTelegram2Fill } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Footer.scss";
 import { useTranslation } from "react-i18next";
 
@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer">
           <div className="footer--title">
-            <h1>Restaurant</h1>
+            <Link to={"/"}>Restaurant</Link>
           </div>
 
           <div className="footer--nav">
@@ -25,10 +25,10 @@ const Footer = () => {
           </div>
 
           <div className="footer--icons">
-            <a href="#" className="icon1">
+            <a href="https://web.telegram.org/k/" className="icon1">
               <RiTelegram2Fill />
             </a>
-            <a href="#" className="icon2">
+            <a href="https://www.instagram.com/almazbekovich.08/" className="icon2">
               <PiInstagramLogoFill />
             </a>
           </div>

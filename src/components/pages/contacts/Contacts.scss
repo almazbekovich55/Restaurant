@@ -1,0 +1,96 @@
+#contacts {
+  position: absolute;
+  top: 240px;
+  left: 600px;
+  background: #1e1f26;
+  padding: 40px 0;
+  border-radius: 10px;
+  width: 320px;
+  margin: auto;
+  font-family: "League Spartan", sans-serif;
+  z-index: 100000;
+  .contacts--form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      cursor: pointer;
+    }
+
+    &__group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      &--icon {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5dada;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      &:nth-of-type(2) .contacts--form__group--icon {
+        background-color: #bcb3d1;
+      }
+
+      &--inputField {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 12px;
+          color: #ffffffcc;
+          margin-bottom: 4px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        input {
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid #888;
+          padding: 5px 0;
+          color: #ddd;
+          outline: none;
+
+          &::placeholder {
+            color: #aaa;
+          }
+
+          &:focus {
+            border-color: #2da8f0;
+          }
+        }
+      }
+    }
+
+    &__btn {
+      font-family: "League Spartan", sans-serif;
+      background-color: #ec3d3d;
+      color: white;
+      padding: 12px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background-color: #d22f2f;
+      }
+    }
+  }
+}

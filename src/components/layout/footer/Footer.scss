@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-between;
     &--title {
-      h1 {
+      a {
         font-family: "Prata", serif;
         font-weight: 600;
         font-size: 28px;
@@ -59,7 +59,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   #footer {
     padding: 30px 10px;
     .footer {
@@ -67,8 +67,8 @@
       align-items: center;
       justify-content: space-between;
       &--title {
-        h1 {
-          font-size: 19px;
+        a {
+          font-size: 20px;
         }
       }
       &--nav {
@@ -76,6 +76,7 @@
       }
       &--icons {
         gap: 10px;
+        
       }
       .icon1 {
         font-size: 22px;

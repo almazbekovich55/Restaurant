@@ -3,6 +3,8 @@ import axios from "axios";
 import "./AboutUs.scss";
 import lineLeft from "../../../assets/Images/LineLeft.svg";
 import { BodyContext } from "../../../context";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 const AboutUs = () => {
   const [about, setAbout] = useState([]);
@@ -34,10 +36,14 @@ const AboutUs = () => {
             </div>
             <div className="aboutUs--bottom">
               <div className="aboutUs--bottom__left">
-                <img src={el.image1} alt="chef" />
+                <Zoom>
+                  <img src={el.image1} alt="chef" />
+                </Zoom>
               </div>
               <div className="aboutUs--bottom__right">
+                <Zoom>
                 <img src={el.image2} alt="dishes" />
+                </Zoom>
               </div>
             </div>
           </div>
