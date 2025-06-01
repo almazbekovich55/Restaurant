@@ -9,7 +9,8 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 100;
+  border-bottom: 0.1px solid rgba(255, 255, 255, 0.348);
   .header {
     display: flex;
     align-items: center;

@@ -6,6 +6,7 @@ import { FaArrowRight } from "react-icons/fa";
 import axios from "axios";
 import { BodyContext } from "../../../context";
 import { useNavigate } from "react-router-dom";
+import { t } from "i18next";
 
 const categoriesList = [
   { id: 1, name: "Desserts" },
@@ -21,13 +22,18 @@ const Menu = () => {
   const [items, setItems] = useState([]);
   const [menu, setMenu] = useState([]);
   const { language } = useContext(BodyContext);
+  const [category, setCategory] = useState([])
   const nav = useNavigate()
 
   const getCategoryData = async (id) => {
     const res = await axios(`http://16.171.195.17/${language}/category/${id}`);
     const res2 = await axios(`http://16.171.195.17/${language}/menu/`);
+    const res3 = await axios(`http://16.171.195.17/${language}/category/`)
+
     setItems(res.data.meals);
     setMenu(res2.data);
+    setCategory(res3.data)
+    
   };
 
   useEffect(() => {
@@ -51,7 +57,7 @@ const Menu = () => {
 
           <div className="menu--content">
             <div className="menu--content__sidebar">
-              {categoriesList.map((category) => (
+              {category.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
@@ -59,7 +65,7 @@ const Menu = () => {
                     activeCategory === category.id ? "active" : ""
                   }`}
                 >
-                  {category.name}
+                  {category.category_name}
                 </button>
               ))}
             </div>
@@ -85,7 +91,7 @@ const Menu = () => {
           <div className="menu--items__footer">
             <hr />
             <button onClick={() => nav("/products")}>
-              VIEW FULL MENU <FaArrowRight />
+              {t("full")} <FaArrowRight />
             </button>
             <hr />
           </div>

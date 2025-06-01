@@ -4,5 +4,13 @@
   "menu": "Menu",
   "contacts": "Contacts",
   "search": "Search",
-  "reserve_table": "Reserve Your Table"
+  "reserve_table": "Reserve Your Table",
+  "full": "View full menu",
+  "gift": "Purchase gift card",
+  "desserts": "Desserts",
+  "hot_drinks": "Hot Drinks",
+  "cold_drinks": "Cold Drinks",
+  "national_foods": "National Foods",
+  "eastern_cuisine": "Eastern cuisine",
+  "fast_foods": "Fast foods"
 }

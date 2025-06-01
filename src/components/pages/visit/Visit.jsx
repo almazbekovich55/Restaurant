@@ -8,6 +8,7 @@ import { TbPhoneCalling } from "react-icons/tb";
 import { AiFillInstagram } from "react-icons/ai";
 import { IoIosPaperPlane } from "react-icons/io";
 import { BodyContext } from "../../../context";
+import { t } from "i18next";
 
 const Visit = () => {
   const [visit, setVisit] = useState([]);
@@ -43,20 +44,21 @@ const Visit = () => {
                   <br />
                 </p>
                 <span className="span">
-                  Mon-Thu: {el.schedule[0].start_time} am -{" "}
-                  {el.schedule[0].end_time} am
+                  {el.schedule[0].start_day.day}-{el.schedule[0].end_day.day}:{" "}
+                  {el.schedule[0].start_time} am - {el.schedule[0].end_time} am
                 </span>
+
                 <br />
                 <span className="span">
-                  Fri-Sun: {el.schedule[1].start_time} am -{" "}
-                  {el.schedule[1].end_time} am
+                  {el.schedule[1].start_day.day}-{el.schedule[1].end_day.day}:{" "}
+                  {el.schedule[1].start_time} am - {el.schedule[1].end_time} am
                 </span>
                 <br />
                 <div className="visit--block__left--btn">
                   <hr />
                   <button>
                     {" "}
-                    Purchase gift card <FaArrowRight />
+                    {t("gift")} <FaArrowRight />
                   </button>
                   <hr />
                 </div>

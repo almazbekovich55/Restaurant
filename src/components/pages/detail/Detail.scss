@@ -1,17 +1,23 @@
 #detail {
-  padding: 50px 0;
+  padding: 100px 0;
   background: #1f2731;
   color: white;
+  position: relative;
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
   }
-
   .detail {
     display: flex;
     gap: 30px;
-
+    h5 {
+      position: absolute;
+      top: 25px;
+      left: 45px;
+      font-size: 40px;
+      cursor: pointer;
+    }
     &__sidebar {
       display: flex;
       flex-direction: column;
@@ -41,76 +47,97 @@
         }
       }
     }
-
     &__main {
       flex: 1;
-
       &-content {
         display: flex;
         align-items: center;
         gap: 20px;
         border-radius: 5px;
-        background: #2a2f3a;;
-
-        img {
-          width: 45%;
-          height: 200px;
-          object-fit: cover;
+        background: #2a2f3a;
+        .justDiv {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
         }
-
-        &-info {
-          flex: 1;
-          h1 {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.5rem;
-            font-family: "Spartan", sans-serif;
-            font-weight: 600;
-
-            span {
-              color: #ef272c;
-            }
-          }
-
-          p {
-            font-family: sans-serif;
-            font-weight: 500;
-            font-size: 1rem;
-            color: #939393;
+        &--lastContent {
+          width: 70%;
+          img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
           }
         }
       }
+      &--info {
+        flex: 1;
+        margin: 10px 10px 10px;
+        h1 {
+          font-family: "League Spartan", sans-serif;
+          font-weight: 600;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          span {
+            font-family: "League Spartan", sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: red;
+            margin-top: 10px;
+          }
+        }
 
-      .detail__extras {
+        p {
+          font-family: sans-serif;
+          font-weight: 500;
+          font-size: 1rem;
+          color: #939393;
+          letter-spacing: 1px;
+        }
+      }
+
+      .detail--extras {
         margin-top: 20px;
         background: #2a2f3a;
         padding: 20px;
         border-radius: 5px;
-
         h2 {
           font-size: 1.5rem;
           margin-bottom: 10px;
         }
-
-        &-list {
+        &__listItems {
           display: flex;
           flex-direction: column;
           gap: 10px;
-
-          .extra-item {
+          h2 {
+            font-family: "League Spartan", sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #ffffff;
+          }
+          &--list {
             display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            background: #1f2731;
-            border-radius: 5px;
-
-            p {
-              margin: 0;
-              font-size: 1rem;
-            }
-
-            span {
-              color: #ef272c;
+            flex-direction: column;
+            gap: 10px;
+            &__extraItem {
+              display: flex;
+              justify-content: space-between;
+              width: 80%;
+              border-radius: 5px;
+              p {
+                font-family: "League Spartan", sans-serif;
+                font-weight: 500;
+                font-size: 18px;
+                color: #939393;
+              }
+              span {
+                font-family: "League Spartan", sans-serif;
+                font-size: 18px;
+                color: #939393;
+              }
             }
           }
         }
@@ -118,10 +145,10 @@
 
       .detail__similar {
         margin-top: 20px;
-
         h2 {
-          font-size: 1.5rem;
-          margin-bottom: 10px;
+          font-family: "Prata" serif;
+          margin: 30px 0;
+          font-size: 2.5rem;
         }
 
         &-list {
