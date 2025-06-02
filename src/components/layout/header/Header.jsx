@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Add useNavigate
 import { CiSearch } from "react-icons/ci";
 import { BodyContext } from "../../../context";
 import { useTranslation } from "react-i18next";
@@ -8,23 +8,16 @@ import i18n from "../../../i18n";
 import { TbMenu2 } from "react-icons/tb";
 import { IoCloseOutline } from "react-icons/io5";
 import { Link as ScrollLink } from "react-scroll";
-import axios from "axios";
 
 const Header = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // State for search input
   const { setLanguage } = useContext(BodyContext);
   const { t } = useTranslation();
-  const [search, setSearch] = useState([]);
-
-  // async function getData() {
-  //   let res = await axios(`http://16.171.195.17/en/search/`);
-  //   setSearch(res.data);
-  //   console.log("header", res.data);
-  // }
+  const navigate = useNavigate(); // For navigation to Search page
 
   useEffect(() => {
-    // getData();
     if (selectedLanguage) {
       setLanguage(selectedLanguage);
       i18n.changeLanguage(selectedLanguage);
@@ -45,6 +38,20 @@ const Header = () => {
 
   const Menu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Handle search form submission
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search/${encodeURIComponent(searchQuery)}`); // Navigate to Search page with query
+      setSearchQuery(""); // Clear the input after submission
+    }
   };
 
   return (
@@ -74,10 +81,16 @@ const Header = () => {
               {t("contacts")}
             </ScrollLink>
 
-            <div className="header--nav__search">
+            <form className="header--nav__search" onSubmit={handleSearchSubmit}>
               <CiSearch className="ion-icon" />
-              <input type="text" placeholder={t("search")} />
-            </div>
+              <input
+                type="text"
+                placeholder={t("search")}
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+            </form>
+
             <select
               onChange={(e) => setSelectedLanguage(e.target.value)}
               value={selectedLanguage}
@@ -88,11 +101,9 @@ const Header = () => {
             </select>
           </div>
           <div className="header--menu">
-            {
-              <a href="#" onClick={Menu}>
-                {isMenuOpen ? <IoCloseOutline /> : <TbMenu2 />}
-              </a>
-            }
+            <a href="#" onClick={Menu}>
+              {isMenuOpen ? <IoCloseOutline /> : <TbMenu2 />}
+            </a>
             <nav className={`header--menu__items ${isMenuOpen ? "open" : ""}`}>
               <ul>
                 <li>

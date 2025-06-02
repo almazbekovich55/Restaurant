@@ -4,15 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
 import RootContext from "./context/RootContext.jsx";
-import "./i18n"; 
+import "./i18n";
 
-
-createRoot(document.getElementById("root")).render(
+const root = createRoot(document.getElementById("root"));
+root.render(
   <StrictMode>
     <BrowserRouter>
-    <RootContext>
-      <App />
-    </RootContext>
+      <RootContext>
+        <App />
+      </RootContext>
     </BrowserRouter>
   </StrictMode>
 );
