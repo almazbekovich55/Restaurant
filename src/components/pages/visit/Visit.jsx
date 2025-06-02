@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Visit.scss";
-import leftLine from "../../../assets/Images/LineLeft.svg";
+import leftLine from "../../../assets/Images/lineLeft.svg";
 import axios from "axios";
 import { FaArrowRight } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";

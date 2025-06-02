@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { BodyContext } from "../../../context";
-import leftLine from "../../../assets/Images/LineLeft.svg";
-import rightLine from "../../../assets/Images/LineRight.svg";
+import leftLine from "../../../assets/Images/lineLeft.svg";
+import rightLine from "../../../assets/Images/lineRight.svg";
 import "./interior.scss";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";

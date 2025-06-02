@@ -3,7 +3,7 @@ import axios from "axios";
 import { BodyContext } from "../../../context";
 import { useNavigate } from "react-router-dom";
 import "./Category.scss";
-import left from "../../../assets/Images/LineLeft.svg";
+import left from "../../../assets/Images/lineLeft.svg";
 import { CiSearch } from "react-icons/ci";
 
 const Category = () => {

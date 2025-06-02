@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Menu.scss";
-import lineLeft from "../../../assets/Images/LineLeft.svg";
-import lineRight from "../../../assets/Images/LineRight.svg";
+import lineLeft from "../../../assets/Images/lineLeft.svg";
+import lineRight from "../../../assets/Images/lineRight.svg";
 import { FaArrowRight } from "react-icons/fa";
 import axios from "axios";
 import { BodyContext } from "../../../context";

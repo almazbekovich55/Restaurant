@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Delicious.scss";
 import axios from "axios";
-import leftLine from "../../../assets/Images/LineLeft.svg";
-import rightLine from "../../../assets/Images/LineRight.svg";
+import leftLine from "../../../assets/Images/lineLeft.svg";
+import rightLine from "../../../assets/Images/lineRight.svg";
 import { BsGeoAltFill } from "react-icons/bs";
 import { ImPhone } from "react-icons/im";
 import { FaArrowRight } from "react-icons/fa";
