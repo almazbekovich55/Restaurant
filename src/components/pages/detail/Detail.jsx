@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BodyContext } from "../../../context";
 import "./Detail.scss";
@@ -10,111 +10,136 @@ const Detail = () => {
   const { language } = useContext(BodyContext);
   const [meal, setMeal] = useState(null);
   const [similarMeals, setSimilarMeals] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [activeCategory, setActiveCategory] = useState(null);
+
+  const nav = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios(`http://16.171.195.17/${language}/category/1`);
-        const meals = res.data.meals;
-        const foundMeal = meals.find((item) => item.id === parseInt(id));
+        const categoriesRes = await axios.get(
+          `http://16.171.195.17/${language}/category/`
+        );
+        setCategories(categoriesRes.data);
+
+        // Бүткүл категорияларды текшеребиз, таап чыкканча
+        let foundMeal = null;
+        let categoryId = null;
+
+        for (const category of categoriesRes.data) {
+          const mealsRes = await axios.get(
+            `http://16.171.195.17/${language}/category/${category.id}`
+          );
+
+          const meals = mealsRes.data.meals;
+
+          const match = meals.find((meal) => meal.id === parseInt(id));
+          if (match) {
+            foundMeal = match;
+            categoryId = category.id;
+
+            // "Похожие блюда"
+            const similar = meals
+              .filter((meal) => meal.id !== parseInt(id))
+              .slice(0, 4);
+            setSimilarMeals(similar);
+            break;
+          }
+        }
+
         setMeal(foundMeal);
-        // Окшош десерттерди алуу (мисалы, ошол эле категориядагы башка десерттер)
-        const similar = meals
-          .filter((item) => item.id !== parseInt(id))
-          .slice(0, 4);
-        setSimilarMeals(similar);
+        setActiveCategory(categoryId);
       } catch (error) {
-        console.error("Meal not found:", error);
+        console.error("Ошибка при загрузке данных:", error);
       }
     };
+
     getData();
   }, [id, language]);
 
-  if (!meal) return <div>Loading...</div>;
-
-  const categories = [
-    "Desserts",
-    "Hot Drinks",
-    "Cold Drinks",
-    "National Foods",
-    "Eastern cuisine",
-    "Fast foods",
-  ];
-
-  const extras = [
-    { name: "Cherry", price: "$0.90" },
-    { name: "Coca Cola", price: "$0.90" },
-  ];
+  const handleCategoryClick = async (categoryId) => {
+    setActiveCategory(categoryId);
+    try {
+      const res = await axios.get(
+        `http://16.171.195.17/${language}/category/${categoryId}`
+      );
+      setSimilarMeals(res.data.meals.slice(0, 4));
+    } catch (err) {
+      console.error("Ошибка при загрузке категории:", err);
+    }
+  };
 
   return (
     <section id="detail">
       <div className="container">
         <div className="detail">
           <h5>
-            <IoIosCloseCircleOutline />
+            <IoIosCloseCircleOutline className="close" onClick={() => nav("/products")} />
           </h5>
-          <div className="detail__sidebar">
-            {categories.map((category, index) => (
+          <div className="detail--content__sidebar">
+            {categories.map((category) => (
               <button
-                key={index}
-                className={category === "Desserts" ? "active" : ""}
+                key={category.id}
+                onClick={() => handleCategoryClick(category.id)}
+                className={`btn ${
+                  activeCategory === category.id ? "active" : ""
+                }`}
               >
-                {category}
+                {category.category_name}
               </button>
             ))}
           </div>
+
           <div className="detail__main">
             <div className="detail__main-content">
               <div className="detail__main-content--lastContent">
                 <img
-                  src={meal.meal_images?.[0]?.image || "/default.jpg"}
-                  alt={meal.title}
+                  src={meal?.meal_images?.[0]?.image || "/default.jpg"}
+                  alt={meal?.title}
                 />
                 <div className="detail__main--info">
                   <h1>
-                    {meal.title}
-                    <span>${meal.price.replace(/\.00$/, "")}</span>
+                    {meal?.title}
+                    <span>${meal?.price?.replace(/\.00$/, "")}</span>
                   </h1>
-                  <p>{meal.ingredient}</p>
+                  <p>{meal?.ingredient}</p>
                 </div>
               </div>
+
               <div className="justDiv">
-                <div className="detail--extras__listItems">
-                  <h2>Extras</h2>
-                  <div className="detail--extras__listItems--list">
-                    {extras.map((extra, index) => (
-                      <div
-                        key={index}
-                        className="detail--extras__listItems--list__extraItem"
-                      >
-                        <p>{extra.name}</p>
-                        <span>{extra.price}</span>
-                      </div>
-                    ))}
+                {meal?.supplements?.map((supplement) => (
+                  <div
+                    className="detail--extras__listItems"
+                    key={supplement.id}
+                  >
+                    <h2>{supplement.supplement_name}</h2>
+                    <div className="detail--extras__listItems--list">
+                      {supplement.items.map((item) => (
+                        <div
+                          key={item.id}
+                          className="detail--extras__listItems--list__extraItem"
+                        >
+                          <p>{item.item}</p>
+                          <span>${item.price.replace(/\.00$/, "")}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="detail--extras__listItems">
-                  <h2>Drinks</h2>
-                  <div className="detail--extras__listItems--list">
-                    {extras.map((extra, index) => (
-                      <div
-                        key={index}
-                        className="detail--extras__listItems--list__extraItem"
-                      >
-                        <p>{extra.name}</p>
-                        <span>{extra.price}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-            {/* Similar Queries */}
+
             <div className="detail__similar">
               <h2>Similar queries</h2>
               <div className="detail__similar-list">
                 {similarMeals.map((similar) => (
-                  <div key={similar.id} className="similar-item">
+                  <div
+                    key={similar.id}
+                    className="similar-item"
+                    onClick={() => nav(`/detail/${similar.id}`)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       src={similar.meal_images?.[0]?.image || "/default.jpg"}
                       alt={similar.title}

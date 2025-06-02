@@ -8,14 +8,23 @@ import i18n from "../../../i18n";
 import { TbMenu2 } from "react-icons/tb";
 import { IoCloseOutline } from "react-icons/io5";
 import { Link as ScrollLink } from "react-scroll";
+import axios from "axios";
 
 const Header = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { setLanguage } = useContext(BodyContext);
   const { t } = useTranslation();
+  const [search, setSearch] = useState([]);
+
+  // async function getData() {
+  //   let res = await axios(`http://16.171.195.17/en/search/`);
+  //   setSearch(res.data);
+  //   console.log("header", res.data);
+  // }
 
   useEffect(() => {
+    // getData();
     if (selectedLanguage) {
       setLanguage(selectedLanguage);
       i18n.changeLanguage(selectedLanguage);

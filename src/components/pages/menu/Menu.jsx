@@ -8,15 +8,6 @@ import { BodyContext } from "../../../context";
 import { useNavigate } from "react-router-dom";
 import { t } from "i18next";
 
-const categoriesList = [
-  { id: 1, name: "Desserts" },
-  { id: 2, name: "Hot Drinks" },
-  { id: 3, name: "Cold Drinks" },
-  { id: 4, name: "National Foods" },
-  { id: 5, name: "Eastern cuisine" },
-  { id: 6, name: "Fast foods" },
-];
-
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(1);
   const [items, setItems] = useState([]);

@@ -1,114 +1,135 @@
-#delicious {
+.delicious {
   padding-bottom: 40px;
   border-top: 0.1px solid rgba(255, 255, 255, 0.428);
-  .delicious {
-    &--content {
+
+  animation: fadeSlideIn 0.8s ease forwards;
+
+  .delicious--content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 600px;
+
+    &__center {
+      margin-top: 184px;
+      width: 105%;
+      height: 100%;
+      border-left: 0.2px solid rgba(255, 255, 255, 0.4);
+      border-right: 0.2px solid rgba(255, 255, 255, 0.4);
       display: flex;
       align-items: center;
-      justify-content: space-between;
       flex-direction: column;
-      height: 600px;
-      &__center {
-        margin-top: 184px;
-        width: 105%;
-        height: 100%;
-        border-left: 0.2px solid rgba(255, 255, 255, 0.4);
-        border-right: 0.2px solid rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 1);
+
+      &--name {
         display: flex;
         align-items: center;
-        flex-direction: column;
-        color: rgba(255, 255, 255, 1);
-        &--name {
-          display: flex;
-          align-items: center;
-          gap: 30px;
-          h3 {
-            font-family: "Shalimar", cursive;
-            font-weight: 400;
-            font-size: 40px;
-            color: rgba(255, 255, 255, 1);
-          }
-          img {
-            width: 68px;
-          }
-        }
-        h1 {
-          font-family: "Prata", serif;
-          font-weight: 500;
-          font-size: 55px;
-        }
-        p {
-          font-family: "League Spartan", sans-serif;
-          margin: 12px 0;
+        gap: 30px;
+
+        h3 {
+          font-family: "Shalimar", cursive;
           font-weight: 400;
-          font-size: 18px;
-          line-height: 1.1;
-          text-align: center;
-          line-height: 110%;
-          letter-spacing: 0%;
-          width: 33%;
+          font-size: 40px;
+          color: rgba(255, 255, 255, 1);
         }
-        &--btn {
+
+        img {
+          width: 68px;
+        }
+      }
+
+      h1 {
+        font-family: "Prata", serif;
+        font-weight: 500;
+        font-size: 55px;
+      }
+
+      p {
+        font-family: "League Spartan", sans-serif;
+        margin: 12px 0;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.1;
+        text-align: center;
+        letter-spacing: 0%;
+        width: 33%;
+      }
+
+      &--btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        hr {
+          border: 1.4px solid rgba(239, 39, 44, 1);
+          width: 170px;
+        }
+
+        button {
           display: flex;
-          flex-direction: column;
           align-items: center;
-          gap: 5px;
-          hr {
-            border: 1.4px solid rgba(239, 39, 44, 1);
-            width: 170px;
-          }
-          button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 220px;
-            height: 42px;
-            background: transparent;
-            font-weight: 600;
-            font-size: 12px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 1);
-            letter-spacing: 1px;
-            border: 1.6px solid rgba(239, 39, 44, 1);
-            cursor: pointer;
+          justify-content: center;
+          gap: 10px;
+          width: 220px;
+          height: 42px;
+          background: transparent;
+          font-weight: 600;
+          font-size: 12px;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 1);
+          letter-spacing: 1px;
+          border: 1.6px solid rgba(239, 39, 44, 1);
+          cursor: pointer;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: rgba(239, 39, 44, 0.8);
+            color: white;
           }
         }
       }
-      &__bottom {
-        padding-bottom: 20px;
-        width: 100%;
+    }
+
+    &__bottom {
+      padding-bottom: 20px;
+      width: 101%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 0.2px solid rgba(255, 255, 255, 0.4);
+
+      &--text {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 101%;
-        border-bottom: 0.2px solid rgba(255, 255, 255, 0.4);
-        &--text {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          h4 {
-            font-family: "League Spartan", sans-serif;
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: 0.8px;
-            color: rgba(255, 255, 255, 1);
-          }
-          hr {
-            width: 60px;
-            border: 0.6px solid rgba(255, 255, 255, 0.6);
-          }
-          a {
-            color: rgba(239, 39, 44, 1);
-            font-size: 18px;
-          }
-          .span {
-            font-family: "League Spartan", sans-serif;
-            font-size: 13px;
-            letter-spacing: 0.8px;
-            text-transform: capitalize;
-            color: rgba(255, 255, 255, 1);
-          }
+        gap: 10px;
+
+        h4 {
+          font-family: "League Spartan", sans-serif;
+          font-weight: 600;
+          font-size: 16px;
+          letter-spacing: 0.8px;
+          color: rgba(255, 255, 255, 1);
+        }
+
+        hr {
+          width: 60px;
+          border: 0.6px solid rgba(255, 255, 255, 0.6);
+        }
+
+        a {
+          color: rgba(239, 39, 44, 1);
+          font-size: 18px;
+          text-decoration: none;
+        }
+
+        .span {
+          font-family: "League Spartan", sans-serif;
+          font-size: 13px;
+          letter-spacing: 0.8px;
+          text-transform: capitalize;
+          color: rgba(255, 255, 255, 1);
         }
       }
     }
@@ -116,95 +137,94 @@
 }
 
 @media (max-width: 480px) {
-  #delicious {
+  .delicious {
     padding: 0 15px;
     position: relative;
-    .delicious {
-      &--content {
-        height: auto;
 
-        &__center {
-          margin-top: -100px;
-          width: 100%;
-          padding: 0 12px;
+    .delicious--content {
+      height: auto;
 
-          &--name {
-            gap: 10px;
+      &__center {
+        margin-top: -100px;
+        width: 100%;
+        padding: 0 12px;
 
-            h3 {
-              font-size: 27px;
-              text-align: center;
-            }
-            img {
-              width: 37px;
-            }
-          }
+        &--name {
+          gap: 10px;
 
-          h1 {
-            font-size: 30px;
+          h3 {
+            font-size: 27px;
             text-align: center;
           }
 
-          p {
-            font-size: 14px;
-            width: 80%;
-            line-height: 130%;
-          }
-
-          &--btn {
-            gap: 4px;
-
-            hr {
-              width: 100px;
-            }
-
-            button {
-              width: 160px;
-              height: 34px;
-              font-size: 9.5px;
-              letter-spacing: 0.5px;
-            }
+          img {
+            width: 37px;
           }
         }
 
-        &__bottom {
-          position: absolute;
-          bottom: 25px;
-          left: 0px;
-          right: 10px;
-          justify-content: space-around;
+        h1 {
+          font-size: 30px;
+          text-align: center;
+        }
+
+        p {
+          font-size: 14px;
+          width: 80%;
+          line-height: 130%;
+        }
+
+        &--btn {
+          gap: 4px;
+
+          hr {
+            width: 100px;
+          }
+
+          button {
+            width: 160px;
+            height: 34px;
+            font-size: 9.5px;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+
+      &__bottom {
+        position: absolute;
+        bottom: 25px;
+        left: 0px;
+        right: 10px;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+
+        &--text {
+          flex-direction: column;
           align-items: flex-start;
-          gap: 12px;
-          width: 100%;
+          gap: 4px;
 
-          &--text {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
+          h4 {
+            font-size: 13px;
+          }
 
-            h4 {
-              font-size: 13px;
-            }
+          hr {
+            width: 43px;
+          }
 
-            hr {
-              width: 43px;
-            }
+          a {
+            font-size: 15px;
+            line-height: 130%;
+          }
 
-            a {
-              font-size: 15px;
-              line-height: 130%;
-            }
+          .span {
+            font-size: 11px;
+            width: 60%;
+          }
 
-            .span {
-              font-size: 11px;
-              width: 60%;
-            }
-            .location {
-              display: none;
-            }
-            .phone {
-              display: none;
-            }
+          .location,
+          .phone {
+            display: none;
           }
         }
       }
