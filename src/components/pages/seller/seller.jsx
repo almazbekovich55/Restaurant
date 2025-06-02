@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import lineLeft from "../../../assets/images/lineLeft.svg";
+import lineLeft from "../../../assets/Images/lineLeft.svg";
 import SellerCarousels from "./sellerCarousels";
 import "./seller.scss";
 import { BodyContext } from "../../../context";
